@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Profile = () => {
     const { user } = useContext(AuthContext);
+    useTitle("Profile");
 
     return (
         <div>

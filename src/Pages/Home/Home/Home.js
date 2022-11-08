@@ -1,5 +1,6 @@
 import React from 'react';
 import useTitle from '../../../hooks/useTitle';
+import DoctorDetails from '../DoctorDetails/DoctorDetails';
 import MentalHealth from '../MentalHealth/MentalHealth';
 import Slider from '../Slider/Slider';
 
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <MentalHealth></MentalHealth>
+            <DoctorDetails></DoctorDetails>
         </div>
     );
 };

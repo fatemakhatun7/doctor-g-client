@@ -2,7 +2,7 @@ import React from 'react';
 
 const MentalHealth = () => {
     return (
-        <div className='mb-5'>
+        <div className='mb-5 bg-rose-100 py-4 mx-6 border rounded-lg'>
             <div className='flex justify-center'>
                 <img className='w-64 rounded-full' src="https://i.ibb.co/Sc2QGwL/mental-Health.jpg" alt="" />
             </div>

@@ -1,11 +1,14 @@
 import React from 'react';
 import useTitle from '../../../hooks/useTitle';
+import MentalHealth from '../MentalHealth/MentalHealth';
+import Slider from '../Slider/Slider';
 
 const Home = () => {
     useTitle("Home")
     return (
         <div>
-            <h2>This is home</h2>
+            <Slider></Slider>
+            <MentalHealth></MentalHealth>
         </div>
     );
 };

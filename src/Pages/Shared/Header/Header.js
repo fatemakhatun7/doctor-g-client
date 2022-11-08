@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar bg-base-100 shadow-lg">
             <div className="navbar-start">
@@ -25,15 +34,37 @@ const Header = () => {
                 <Link className="font-bold normal-case text-xl rounded-full"><span className='text-rose-900'>Doctor</span><span className='text-green-900 ml-1'>G</span></Link>
             </div>
             <div className="navbar-end">
-                <button className="dropdown dropdown-end">
-                <button tabIndex={0} className="btn btn-outline btn-success btn-sm">
-                Get Started
-                </button>
-                <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                    <li className='hover:border-l-4 border-fuchsia-600'><Link to='/signin'>Sign In</Link></li>
-                    <li className='hover:border-l-4 border-fuchsia-600'><Link to='/signup'>Sign Up</Link></li>
-                </ul>
-                </button>
+                {
+                    user?.uid ?
+                    <>
+                        <button className="dropdown dropdown-end">
+                            <div tabIndex={0} className="avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt=""/>
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/profile'>Profile</Link></li>
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/reviews'>My reviews</Link></li>
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/addServices'>Add services</Link></li>
+                                <li className='hover:border-l-4 border-fuchsia-600' onClick={handleLogOut}><Link>Sign Out</Link></li>
+                            </ul>
+                        </button>
+                    </>
+                    :
+                    <>
+                        <button className="dropdown dropdown-end">
+                            <button tabIndex={0} className="btn btn-outline btn-success btn-sm">
+                                Get Started
+                            </button>
+                            <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/signin'>Sign In</Link></li>
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/signup'>Sign Up</Link></li>
+                            </ul>
+                        </button>
+                    </>
+                }
+
             </div>
         </div>
     );

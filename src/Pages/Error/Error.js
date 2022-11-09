@@ -11,7 +11,9 @@ const Error = () => {
             </div>
             <h1>Error <span class="text-error">404</span></h1>
             <h4>Sorry, You have entered wrong route. </h4>
-            <Link to='/'>Back to <span className='text-green-500'>Home</span></Link>
+            <Link to='/'>Back to 
+            <span className='link link-hover text-green-500'> Home</span>
+            </Link>
         </div>
     );
 };

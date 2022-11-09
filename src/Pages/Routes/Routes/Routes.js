@@ -11,6 +11,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ServiceDetails from "../../Services/ServiceDetails/ServiceDetails";
 import Checkout from "../../Services/Checkout/Checkout";
 import HealthTips from "../../HealthTips/HealthTips";
+import UserAddServices from "../../Home/AddServices/UserAddServices";
+import Report from "../../Report/Report";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/profile',
-            element: <Profile></Profile>
+            element: <PrivateRoute><Profile></Profile></PrivateRoute>
         },
         {
             path:'/blogs',
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
         {
             path:'/tips',
             element: <HealthTips></HealthTips>
+        },
+        {
+            path:'/addServices',
+            element: <PrivateRoute><UserAddServices></UserAddServices></PrivateRoute>
+        },
+        {
+            path:'/report',
+            element: <PrivateRoute><Report></Report></PrivateRoute>
         },
         {
             path: '/services',

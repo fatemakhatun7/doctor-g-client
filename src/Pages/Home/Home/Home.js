@@ -18,7 +18,7 @@ const Home = () => {
             <Slider></Slider>
             <MentalHealth></MentalHealth>
             <WhenVisit></WhenVisit>
-            <div className='m-5 bg-rose-100 py-4 mx-6 border rounded-lg flex flex-wrap justify-around'>
+            <div className='m-5 bg-rose-100 py-10 mx-6 border rounded-lg flex flex-wrap justify-around'>
                 {
                     options.map(option => <ThreeServices 
                         key={option._id} 

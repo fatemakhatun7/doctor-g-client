@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Review = () => {
     return (
-        <div className='mb-5 bg-rose-100 py-4 mx-6 border rounded-lg flex justify-around'>
+        <div className='mb-20 mt-10 bg-rose-100 py-4 mx-6 border rounded-lg flex justify-around'>
             <div>
                 <div className='text-yellow-600'>
                     <FaStar className='w-12 sm:w-24 h-12 sm:h-24'></FaStar>

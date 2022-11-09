@@ -6,6 +6,10 @@ import SignIn from "../../GetStarted/SignIn/SignIn";
 import Profile from "../../Profile/Profile";
 import Blogs from "../../Blogs/Blogs";
 import Error from "../../Error/Error";
+import Services from "../../Services/Services/Services";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ServiceDetails from "../../Services/ServiceDetails/ServiceDetails";
+import Checkout from "../../Services/Checkout/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +37,21 @@ const router = createBrowserRouter([
         {
             path:'/blogs',
             element: <Blogs></Blogs>
+        },
+        {
+            path: '/services',
+            element: <PrivateRoute><Services></Services></PrivateRoute>,
+            loader: () => fetch('https://doctor-g-server.vercel.app/services')
+        },
+        {
+            path: '/services/:id',
+            element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+            loader: ({params}) => fetch(`https://doctor-g-server.vercel.app/services/${params.id}`)
+        },
+        {
+            path: '/services/checkout/:id',
+            element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+            loader: ({params}) => fetch(`https://doctor-g-server.vercel.app/services/${params.id}`)
         }
         ]
     }

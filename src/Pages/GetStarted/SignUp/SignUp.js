@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
-    const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle("Sign_up")
 
     const from = location.state?.from?.pathname || '/';
 
@@ -26,7 +28,6 @@ const SignUp = () => {
                 console.log(user);
                 setError('');
                 form.reset();
-                handleUpdateUserProfile(name, photoURL);
                 navigate(from, { replace: true })
                 toast.success('You have successfully created your account.')
             })
@@ -34,17 +35,6 @@ const SignUp = () => {
                 console.error(e);
                 setError(e.message);
             });
-    }
-
-    const handleUpdateUserProfile = (name, photoURL) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL
-        }
-
-        updateUserProfile(profile)
-            .then(() => { })
-            .catch(error => console.error(error));
     }
 
     const handleGoogleSignin = () => {

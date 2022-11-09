@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
     const {title, image, p, description, total_patient, money, rating, badge} = serviceDetails;
+    useTitle("Service_Details")
 
     return (
         <div className='my-20 bg-rose-100 py-4 mx-6 border rounded-lg'>

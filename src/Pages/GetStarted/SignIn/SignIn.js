@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const SignIn = () => {
     const [error, setError] = useState('');
     const { signIn, setLoading, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle("Sign_in")
 
     const from = location.state?.from?.pathname || '/';
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const Checkout = () => {
     const checkout = useLoaderData();
     const {title, money} = checkout;
+    useTitle("checkout")
 
     return (
         <div className='my-10 bg-rose-100 py-4 mx-6 border rounded-lg'>

@@ -3,6 +3,7 @@ import useTitle from '../../../hooks/useTitle';
 import DoctorDetails from '../DoctorDetails/DoctorDetails';
 import MentalHealth from '../MentalHealth/MentalHealth';
 import Slider from '../Slider/Slider';
+import WhenVisit from '../WhenVisit/WhenVisit';
 
 const Home = () => {
     useTitle("Home")
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <MentalHealth></MentalHealth>
+            <WhenVisit></WhenVisit>
             <DoctorDetails></DoctorDetails>
         </div>
     );

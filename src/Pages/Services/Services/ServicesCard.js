@@ -7,10 +7,10 @@ const ServicesCard = ({service}) => {
     const {title, image, description, total_patient, rating, badge} = service;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl mb-5">
+            <div className="card w-64 sm:w-96 bg-base-100 shadow-xl mb-5">
                 <PhotoProvider>
                     <PhotoView src={image}>
-                        <img className='h-64' src={image} alt="" />
+                        <img className='h-40 sm:h-64' src={image} alt="" />
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">

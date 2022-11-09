@@ -13,10 +13,10 @@ const ServiceDetails = () => {
     return (
         <div className='my-20 bg-rose-100 py-4 mx-6 border rounded-lg'>
             <div className='flex justify-center'>
-            <div className="card w-96 bg-base-100 shadow-xl mb-5">
+            <div className="card w-64 sm:w-96 bg-base-100 shadow-xl mb-5">
                 <PhotoProvider>
                     <PhotoView src={image}>
-                        <img className='h-64' src={image} alt="" />
+                        <img className='h-40 sm:h-64' src={image} alt="" />
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">
@@ -37,11 +37,11 @@ const ServiceDetails = () => {
                             <span className='text-xl font-medium text-green-700'>{badge}</span>
                         </p>
                     </div>
-                    <div className='flex justify-between mt-5'>
+                    <div className='block sm:flex justify-between mt-5'>
                         <div className="card-actions">
                             <button className="btn btn-primary">{money}</button>
                         </div>
-                        <Link to={`/services/checkout/${serviceDetails._id}`} className="card-actions">
+                        <Link to={`/services/checkout/${serviceDetails._id}`} className="card-actions mt-5 sm:mt-0">
                             <button className="btn btn-primary">Book an Appointment 
                             <FaArrowRight className='ml-3'></FaArrowRight></button>
                         </Link>

@@ -1,7 +1,9 @@
 import React from 'react';
+import 'react-photo-view/dist/react-photo-view.css';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
@@ -12,7 +14,11 @@ const ServiceDetails = () => {
         <div className='my-20 bg-rose-100 py-4 mx-6 border rounded-lg'>
             <div className='flex justify-center'>
             <div className="card w-96 bg-base-100 shadow-xl mb-5">
-                <figure><img src={image} alt="" /></figure>
+                <PhotoProvider>
+                    <PhotoView src={image}>
+                        <img className='h-64' src={image} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>{p}</p>

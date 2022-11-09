@@ -4,7 +4,7 @@ const DoctorDetails = () => {
     return (
         <div className='mb-5 bg-rose-100 py-4 mx-6 border rounded-full'>
             <div className='my-10 text-3xl font-bold text-center text-cyan-900'>
-                <h1>All treatments are provides by</h1>
+                <h1>All treatment provide by</h1>
             </div>
             <div className='flex justify-center mb-5'>
                 <div className='flex justify-center mr-5'>

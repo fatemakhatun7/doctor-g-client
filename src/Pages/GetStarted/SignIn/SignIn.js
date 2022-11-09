@@ -22,11 +22,30 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                form.reset();
-                setError('');
-                navigate(from, {replace: true});
-                toast.success('You have successfully logged in.')
+                
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // get jwt token
+                fetch('https://doctor-g-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                        form.reset();
+                        setError('');
+                        toast.success('You have successfully logged in.')
+                        navigate(from, { replace: true });
+                    });
             })
             .catch(error => {
                 console.error(error)

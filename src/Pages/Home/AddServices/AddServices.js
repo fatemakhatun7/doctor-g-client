@@ -10,7 +10,7 @@ const AddServices = () => {
                 </h2>
             </div>
             <div className='mb-5 text-center'>
-                <h2 className='text-sm sm:text-lg font-semibold sm:font-semibold'>
+                <h2 className='text-sm sm:text-lg font-semibold sm:font-semibold px-10 sm:px-20 md:px-32 lg:px-56'>
                     Let me know your requirements. Please click the button below and add what services you want with details. I'll happily accept your opinion and notify you updates.
                 </h2>
             </div>

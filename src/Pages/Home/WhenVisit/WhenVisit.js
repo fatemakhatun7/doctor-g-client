@@ -6,7 +6,7 @@ const WhenVisit = () => {
             <h2 className='my-10 text-lg sm:text-3xl font-bold text-center text-cyan-900'>When should you visit <br />
             <span className='text-rose-900'>Doctor</span><span className='text-green-900 ml-1'>G </span> ?
             </h2>
-            <ol className='text-sm sm:text-md font-semibold sm:font-bold'>
+            <ol className='text-sm sm:text-lg font-semibold sm:font-bold'>
                 <li className='text-center'>Showing symptoms of a significant mental health condition.</li>
                 <li className='text-center'>Having difficulty coping with problems.</li>
                 <li className='text-center'>Addictions or Substance Abuse.</li>

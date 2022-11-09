@@ -40,7 +40,7 @@ const SignIn = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        localStorage.setItem('genius-token', data.token);
+                        localStorage.setItem('jwt-token', data.token);
                         form.reset();
                         setError('');
                         toast.success('You have successfully logged in.')

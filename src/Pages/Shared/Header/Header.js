@@ -22,16 +22,21 @@ const Header = () => {
                     <li className='hover:border-l-4 border-fuchsia-600'><Link to='/'>Home</Link></li>
                     <li className='hover:border-l-4 border-fuchsia-600'><Link to='/blogs'>Blogs</Link></li>
                     <li className='hover:border-l-4 border-fuchsia-600'><Link to='/services'>Services</Link></li>
-                    <li className='hover:border-l-4 border-fuchsia-600'><Link to='/tips'>Regular Health Tips</Link></li>
+                    <li className='hover:border-l-4 border-fuchsia-600'><Link to='/tips'>Mental Health Tips</Link></li>
                     <li className='hover:border-l-4 border-fuchsia-600'><Link to='/report'>Report an issue</Link></li>
                 </ul>
                 </div>
             </div>
             <div className="navbar-center flex">
-                <div className="w-10 rounded-full mr-1">
+                <div className="w-10 sm:w-14 rounded-full mr-1">
                     <img src="https://i.ibb.co/vVT97rV/doctor-g-png.jpg" alt=''/>
                 </div>
-                <Link className="font-bold normal-case text-xl rounded-full"><span className='text-rose-900'>Doctor</span><span className='text-green-900 ml-1'>G</span></Link>
+                <div>
+                    <Link className="font-bold normal-case text-xl rounded-full"><span className='text-rose-900'>Doctor</span><span className='text-green-900 ml-1'>G</span></Link>
+                    <div className='hidden sm:block'>
+                        <h2 className='text-xs'>The place for mental health</h2>
+                    </div>
+                </div>
             </div>
             <div className="navbar-end">
                 {

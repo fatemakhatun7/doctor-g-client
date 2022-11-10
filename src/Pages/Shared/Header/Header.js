@@ -50,7 +50,7 @@ const Header = () => {
                             </div>
                             <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                                 <li className='hover:border-l-4 border-fuchsia-600'><Link to='/profile'>Profile</Link></li>
-                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/reviews'>My reviews</Link></li>
+                                <li className='hover:border-l-4 border-fuchsia-600'><Link to='/myReviews'>My reviews</Link></li>
                                 <li className='hover:border-l-4 border-fuchsia-600'><Link to='/addServices'>Add services</Link></li>
                                 <li className='hover:border-l-4 border-fuchsia-600' onClick={handleLogOut}><Link>Sign Out</Link></li>
                             </ul>

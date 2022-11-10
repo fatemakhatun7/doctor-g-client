@@ -13,6 +13,9 @@ import Checkout from "../../Services/Checkout/Checkout";
 import HealthTips from "../../HealthTips/HealthTips";
 import UserAddServices from "../../Home/AddServices/UserAddServices";
 import Report from "../../Report/Report";
+import AddReview from "../../ReviewSection/AddReview/AddReview";
+import Reviews from "../../ReviewSection/Reviews/Reviews";
+import Myreviews from "../../ReviewSection/MyReviews/Myreviews";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +70,20 @@ const router = createBrowserRouter([
             path: '/services/checkout/:id',
             element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
             loader: ({params}) => fetch(`https://doctor-g-server.vercel.app/services/${params.id}`)
+        },
+        {
+            path: '/reviews/:id',
+            element: <PrivateRoute><Reviews></Reviews></PrivateRoute>,
+            loader: () => fetch(`https://doctor-g-server.vercel.app/reviews`)
+        },
+        {
+            path: '/addReview/:id',
+            element: <PrivateRoute><AddReview></AddReview></PrivateRoute>,
+            loader: ({params}) => fetch(`https://doctor-g-server.vercel.app/services/${params.id}`)
+        },
+        {
+            path: '/myReviews',
+            element: <PrivateRoute><Myreviews></Myreviews></PrivateRoute>
         }
         ]
     }

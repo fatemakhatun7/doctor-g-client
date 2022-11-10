@@ -49,14 +49,19 @@ const ServiceDetails = () => {
                 </div>
             </div>
             </div>
+            <div className='flex justify-center m-5'>
+                <Link to={`/reviews/${serviceDetails._id}`}
+                 className=" btn btn-active btn-secondary">see all reviews</Link>
+            </div>
+            
             <div className='mt-10 flex justify-center'>
                 <h2 className='text-center text-cyan-900 text-2xl font-bold'>Do you want to review 
-                <span className='mx-2 text-xl text-purple-800 font-bold'>{title}</span> 
+                <span className='mx-2 text-xl text-purple-800 font-bold'>{serviceDetails.title}</span> 
                     service?</h2>
             </div>
             <div className='flex justify-center m-5'>
-                <Link
-                 className=" btn btn-active btn-secondary">review now</Link>
+                <Link to={`/addReview/${serviceDetails._id}`}
+                className=" btn btn-active btn-secondary">review now</Link>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const MyReviewCard = ({ review, handleDelete, handleStatusUpdate }) => {
+const MyReviewCard = ({ review, handleDelete, handleUpdate }) => {
     const {_id, name, email, title, rating, description} = review;
     
     return (
@@ -18,8 +19,9 @@ const MyReviewCard = ({ review, handleDelete, handleStatusUpdate }) => {
                     <p>Review: <span className='text-md font-semibold text-dark-900'>{description}</span></p>
                 </div>
                 <div>
-                    <button onClick={() => handleStatusUpdate(_id)} className="btn btn-primary">Edit</button>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                    <Link handleUpdate={handleUpdate} to={`/update/${_id}`} className="btn btn-primary"> Edit
+                    </Link>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary ml-3">Delete</button>
                 </div>
             </div>
         </div>

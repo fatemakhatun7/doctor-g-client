@@ -2,28 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import MyReviewCard from '../MyReviewCard/MyReviewCard';
 
 const Myreviews = () => {
-    const { user, logOut } = useContext(AuthContext);
+    useTitle("My reviews")
+    const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         fetch(`https://doctor-g-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('jwt-token')}`
+                'content-type': 'application/json'
             }
         })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    return logOut();
-                }
-                return res.json();
-            })
+            .then(res => res.json())
             .then(data => {
                 setReviews(data);
             })
-    }, [user?.email, logOut])
+    }, [user?.email])
 
     const handleDelete = id => {
         const proceed = window.confirm('Do you want to delete this review?');
@@ -31,7 +28,7 @@ const Myreviews = () => {
             fetch(`https://doctor-g-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    authorization: `Bearer ${localStorage.getItem('jwt-token')}`
+                    'content-type': 'application/json'
                 }
             })
                 .then(res => res.json())
@@ -45,26 +42,22 @@ const Myreviews = () => {
         }
     }
 
-    const handleStatusUpdate = id => {
+    const handleUpdate = id => {
         fetch(`https://doctor-g-server.vercel.app/reviews/${id}`, {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('jwt-token')}`
+                'content-type': 'application/json'
             },
-            body: JSON.stringify({ status: 'Approved' })
+            body: JSON.stringify({ reviews })
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     const remaining = reviews.filter(rvw => rvw._id !== id);
-                    const approving = reviews.find(rvw => rvw._id === id);
-                    approving.status = 'Approved'
-
-                    const newReviews = [approving, ...remaining];
+                    const newReviews = [...remaining];
                     setReviews(newReviews);
-                    toast.success("Review updated successfully")
+                    toast.success("updated successfully")
                 }
             })
     }
@@ -72,7 +65,7 @@ const Myreviews = () => {
     return (
         <div className='my-10 mx-5'>
             <div className='mb-10 bg-rose-100 py-4 mx-6 border rounded-lg'>
-                <p className='py-3 text-lg sm:text-3xl font-bold text-center text-cyan-900'>All Reviews</p>
+                <p className='py-3 text-lg sm:text-3xl font-bold text-center text-cyan-900'>My Reviews</p>
             </div>
             {
                 reviews.length >0 ?
@@ -82,7 +75,7 @@ const Myreviews = () => {
                             key={review._id}
                             review={review}
                             handleDelete={handleDelete}
-                            handleStatusUpdate={handleStatusUpdate}
+                            handleUpdate={handleUpdate}
                         ></MyReviewCard>)
                     }
                     </div> 

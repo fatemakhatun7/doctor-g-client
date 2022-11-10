@@ -16,6 +16,7 @@ import Report from "../../Report/Report";
 import AddReview from "../../ReviewSection/AddReview/AddReview";
 import Reviews from "../../ReviewSection/Reviews/Reviews";
 import Myreviews from "../../ReviewSection/MyReviews/Myreviews";
+import UpdateReview from "../../ReviewSection/UpdateReview/UpdateReview";
 
 const router = createBrowserRouter([
     {
@@ -84,6 +85,11 @@ const router = createBrowserRouter([
         {
             path: '/myReviews',
             element: <PrivateRoute><Myreviews></Myreviews></PrivateRoute>
+        },
+        {
+            path: '/update/:id',
+            element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+            loader: ({params}) => fetch(`https://doctor-g-server.vercel.app/reviews/${params.id}`)
         }
         ]
     }

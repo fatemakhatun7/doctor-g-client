@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import {  Form, Navigate, useLoaderData } from 'react-router-dom';
+import {  Form, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 
@@ -10,6 +10,7 @@ const AddReview = () => {
     const addReview = useLoaderData();
     const {title, _id} = addReview;
     const [review, setReview] = useState({});
+    const navigate = useNavigate();
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -27,7 +28,7 @@ const AddReview = () => {
             if(data.acknowledged){
                 toast.success('Successfully added your review.');
                 e.target.reset();
-                Navigate('/');
+                navigate('/')
             }
         })
     }

@@ -23,7 +23,7 @@ const Home = () => {
                     user?.uid ?
                         <>
                             <div className="flex justify-center text-xl font-bold bg-red-100 p-10 border rounded-lg">
-                                <p>Hello, <span className='text-purple-900 text-3xl'>{user.displayName}.</span> <br/> Welcome to The Brainy Hub Learning Portal.<br/> Explore and learn more Languages with us.</p>
+                                <p>Hello, <span className='text-purple-900 text-3xl'>{user.displayName}.</span> <br/> Welcome to Doctor G.<br/> Your Mental Solution.</p>
                             </div>
                         </>
                         :

@@ -59,7 +59,7 @@ const AddReview = () => {
                             <label className="label">
                                  <span className="label-text">Email</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="email" name="email" placeholder="Your email" value={user.email} className="input input-bordered input-info max-w-xs mb-2" readOnly/>
+                            <input type="email" name="email" placeholder="Your email" value={user.email} className="input input-bordered input-info max-w-xs mb-2" readOnly/>
                         </div>
                         <div className='form-control'>
                             <label className="label">
